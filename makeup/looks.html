@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>looks</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <style>
+    .mytext{
+        font-size: 18pt;
+        margin-left: 40px;
+        text-shadow: black 2px ;
+        font-family: "arial";
+        
+
+    }.navbar {
+        margin-bottom: 0;
+        background-color:#c4bbbc;
+        font-size: 16px ;
+        letter-spacing: 4px;
+
+    }.navbar li a, .navbar .navbar-brand {
+        color: rgb(230, 219, 129) !important;
+    }.navbar-nav li a:hover, .navbar-nav li.active a {
+        background-color:#ffbca2 !important;
+
+    }.titles, .n{
+        background-color:#fee0d6;
+        color:plum;
+        text-align:center;
+       
+    }.q{
+        background-color:#fee0d6;
+        color:plum;
+        text-align:center;  
+
+    }
+    .logo{
+        width:90%;
+    }
+    .item img{
+        width:1000px;
+    }
+    .modal  img{
+        width:100%
+    }
+    p{
+        font-size: 30px;
+    }
+    .jumbotron {
+        background-color:#ffbca2;
+}
+
+</style>
+</head>
+<body onload="loadJSON()">
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Malina & Destiny</h1> 
+      </div>
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+
+            <ul class="nav navbar-nav">
+              <li><a href="makeup.html">Home</a></li>
+              <li class=" dropdown ">
+                <a class="dropdown-toggle " data-toggle="dropdown" href="#">Application
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                        <li><a href="application.html">Information</a></li>
+                        <li><a href="quizApplication.html">Quiz</a></li>
+                </ul>
+              </li>
+              <li class=" dropdown">
+                <a class=" dropdown-toggle " data-toggle="dropdown" href="#">Dangers/Ingredients
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="DI.html">Information</a></li>
+                  <li><a href="quizSkin.html">Quiz</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                        <li><a href="Products.html">Information</a></li>
+                        <li><a href="quizLipstick.html">Quiz</a></li>
+                </ul>
+              </li>
+              <li class="active dropdown">
+                <a href="looks.html">Looks</a>
+              </li>
+              
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">skin types
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                        <li><a href="skintype.html">Information</a></li>
+                        <li><a href="quizfoundation.html">Quiz</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+      </nav>
+    </br> </br>
+    <div id="output"></div>
+
+      <div class="row">
+              <div class="col-md-4">
+                      <div class="w3-container">
+                     <img src="https://i.ytimg.com/vi/08bLWUkCrJg/maxresdefault.jpg" style="width:100%;cursor:pointer" 
+                              onclick="onClick(this)" class="w3-hover-opacity">
+                              <div class="w3-container w3-center">
+                                    <p>Cut Crease</p>
+                                  </div>
+                      </div>
+              </div>
+              <div class="col-md-4">
+                      <div class="w3-container">
+                     <img src="https://i.ytimg.com/vi/qYCK4XY7M78/maxresdefault.jpg" style="width:100%;cursor:pointer" 
+                              onclick="onClick(this)" class="w3-hover-opacity">
+                              <div class="w3-container w3-center">
+                                    <p>Smokey Eye</p>
+                                  </div>
+                      </div>
+              </div>
+              <div class="col-md-4">
+                      <div class="w3-container">
+                     <img src="https://i.ytimg.com/vi/NpnUaz-GEqs/maxresdefault.jpg" style="width:100%;cursor:pointer" 
+                              onclick="onClick(this)" class="w3-hover-opacity">
+                              <div class="w3-container w3-center">
+                                    <p>Glitter Eye</p>
+                                  </div>
+                      </div>
+              </div>
+      </div>
+      </br></br>
+      <div class="row">
+            <div class="col-md-4">
+                    <div class="w3-container">
+                   <img src="https://gl-images.condecdn.net/image/zBAzwYWlrAe/crop/1440/0.5235602094240838/f/katiejanehughes_sq.jpg" style="width:100%;cursor:pointer" 
+                            onclick="onClick(this)" class="w3-hover-opacity">
+                            <div class="w3-container w3-center">
+                                    <p>Glossy Eye</p>
+                                  </div>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                    <div class="w3-container">
+                   <img src="http://shelookbook.com/wp-content/uploads/2013/09/Sisley-Phyto-Ombre-Glow-Eyeshadow-fall-winter-2013-2014-Silver-Gold-Pearl-and-Amber.jpg" style="width:100%;cursor:pointer" 
+                            onclick="onClick(this)" class="w3-hover-opacity">
+                            <div class="w3-container w3-center">
+                                    <p>Natural</p>
+                                  </div>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                    <div class="w3-container">
+                   <img src="https://hindi-tips.com/wp-content/uploads/2017/12/maxresdefault-25.jpg" style="width:100%;cursor:pointer" 
+                            onclick="onClick(this)" class="w3-hover-opacity">
+                            <div class="w3-container w3-center">
+                                    <p>Cat Eye</p>
+                                  </div>
+                    </div>
+            </div>
+
+    </div>
+
+        <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+              <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+              <div class="w3-modal-content w3-animate-zoom">
+                <img id="img01" style="width:100%">
+
+              </div>
+            </div>
+            
+            <script>
+            function onClick(element) {
+              document.getElementById("img01").src = element.src;
+              document.getElementById("modal01").style.display = "block";
+            }
+
+
+
+
+</script>
+</body>
+</html>

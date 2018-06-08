@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>Skin Quiz</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+  <script type="text/template" id="ctmp">
+    <div class="card {{health}} w3-panel w3-border w3-border-black w3-hover-border-white">
+        <h1> {{description}} </h1>
+        <p>1) {{choice1}} </p>
+        <p>2)  {{choice2}} </p>
+        <input type="text" id="q{{id}}">
+    </div>
+   
+</script>
+      <style>
+    .mytext{
+        font-size: 18pt;
+        margin-left: 40px;
+        text-shadow: black 2px ;
+        font-family: "arial";
+        
+
+    }.navbar {
+        margin-bottom: 0;
+        background-color:#c4bbbc;
+        font-size: 16px ;
+        letter-spacing: 4px;
+
+    }.navbar li a, .navbar .navbar-brand {
+        color: rgb(230, 219, 129) !important;
+    }.navbar-nav li a:hover, .navbar-nav li.active a {
+        background-color:#ffbca2 !important;
+
+    }.titles, .n{
+        background-color:#fee0d6;
+        color:plum;
+        text-align:center;
+       
+    }.q{
+        background-color:#fee0d6;
+        color:plum;
+        text-align:center;  
+
+    }
+    .logo{
+        width:90%;
+    }
+    .item img{
+        width:1000px;
+    }
+    .modal  img{
+        width:100%
+    }.text1{
+        font-size: 30px;
+    }
+    .jumbotron {
+        background-color:#ffbca2;
+}
+</style>
+  <script>
+    var data;
+    function loadJSON(){              
+        $.getJSON("https://makup-f056d.firebaseio.com/.json",function(results){
+            data = results;
+            displaydata()
+        })
+    }
+        function displaydata(){
+        var build = "";
+        var output = document.getElementById("output")
+        var tmp = document.getElementById("ctmp").innerHTML;
+
+        for(var key in data.lipstick){
+                build += Mustache.render(tmp,data.lipstick[key]);
+            }
+        
+
+        output.innerHTML = build; 
+    }
+
+   function grade(){
+            var score = 0;
+            for(var i = 1; i <= 3 ; i++){
+                var userAnswer =document.getElementById("q"+i).value
+                var correctAnswer = data.lipstick["q"+i].answer;
+                console.log(i + " " + userAnswer + " " + correctAnswer);
+                if(userAnswer == correctAnswer){
+                    score++
+                }
+            }
+            alert("Score:"+score)
+        }
+    
+    
+    </script>
+</head>
+<body onload="loadJSON()">
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Malina & Destiny</h1> 
+      </div>
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+
+            <ul class="nav navbar-nav">
+              <li><a href="makeup.html">Home</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Application
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="application.html">Information</a></li>
+                    <li><a href="quizApplication.html">Quiz</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dangers/Ingredients
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="DI.html">Information</a></li>
+                    <li><a href="quizSkin.html">Quiz</a></li>
+                </ul>
+              </li>
+              <li class="active dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="products.html">Information</a></li>
+                    <li><a href="quizlipstick.html">Quiz</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="looks.html">Looks</a>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Skin types
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="skintype.html">Information</a></li>
+                    <li><a href="quizFoundation.html">Quiz</a></li>
+                </ul>
+              </li>
+
+
+            </ul>
+          </div>
+      </nav>
+    <div id="output"></div>
+    <button onclick="grade()">Grade</button>
+</body>
+</html>
